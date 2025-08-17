@@ -70,7 +70,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   void _dicrementCounter() {
     setState(() {
-      if (_counter == 0) {
+      if (_counter == 0) { // ниже 0 теперь счётчик не уменьшается
         return;
       }
       _counter--;
