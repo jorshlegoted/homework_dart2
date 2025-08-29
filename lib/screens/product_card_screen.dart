@@ -84,6 +84,14 @@ class ProductCard extends StatelessWidget {
           ),
         ),
       ),
+      Padding(
+        padding: const EdgeInsets.only(top: 50),
+        child: Center(
+          child: ElevatedButton(
+            onPressed: () => Navigator.pop(context), 
+            child: Text('Назад')),
+        ),
+      ),
     ],
     
         ),
