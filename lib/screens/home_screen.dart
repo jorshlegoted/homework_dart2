@@ -62,32 +62,36 @@ class HomeScreen extends StatelessWidget {
   
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        backgroundColor: Color.fromARGB(216, 60, 247, 54),
-        title: Text('Кроссовки'),
-      ),   
-      body: ListView.separated(
-        itemCount: shoes.length,
-        itemBuilder: (context, index) {
-          final product = shoes[index];
-          return InkWell(
-          onTap: () => Navigator.push(context, MaterialPageRoute(builder: (_) => ProductCard(product: product))),
-          child: ListTile(
-            leading: Image.network(
-              shoes[index].photo,
-              height: 100,
-              width: 100,
-              fit: BoxFit.cover,
+    return PopScope(
+      canPop: false,
+      child: Scaffold(
+        appBar: AppBar(
+          leading: const SizedBox.shrink(),
+          centerTitle: true,
+          backgroundColor: Color.fromARGB(216, 60, 247, 54),
+          title: Text('Кроссовки'),
+        ),   
+        body: ListView.separated(
+          itemCount: shoes.length,
+          itemBuilder: (context, index) {
+            final product = shoes[index];
+            return InkWell(
+            onTap: () => Navigator.push(context, MaterialPageRoute(builder: (_) => ProductCard(product: product))),
+            child: ListTile(
+              leading: Image.network(
+                shoes[index].photo,
+                height: 100,
+                width: 100,
+                fit: BoxFit.cover,
+              ),
+              title: Text(shoes[index].shoes.shoesType),
+              subtitle: Text(shoes[index].description),
+              trailing: Icon(Icons.arrow_forward),
             ),
-            title: Text(shoes[index].shoes.shoesType),
-            subtitle: Text(shoes[index].description),
-            trailing: Icon(Icons.arrow_forward),
-          ),
-        );
-        },
-        separatorBuilder: (context, index) => Divider(),
+          );
+          },
+          separatorBuilder: (context, index) => Divider(),
+        ),
       ),
     );
   }

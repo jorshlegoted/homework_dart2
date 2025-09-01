@@ -29,11 +29,22 @@ class ProductCard extends StatelessWidget {
             margin: EdgeInsets.only(left: 20, top: 20),
             height: 250,
             width: 200,
-            child: Image.network(
-              product.photo,
-              fit: BoxFit.cover),
-            
-          ),
+            child: Stack(
+              alignment: Alignment.center,
+              children: [
+                Image.network(
+                product.photo,
+                fit: BoxFit.cover,
+                width: double.infinity,
+                height: double.infinity,),
+
+                Positioned(
+                  child: Icon(Icons.favorite, color: Color.fromARGB(237, 245, 53, 53), size: 50),
+                  right: 0,
+                  top: 0,),
+              ],
+            ),
+            ),
           const SizedBox(width: 20),
           Padding(padding: EdgeInsetsGeometry.only(top: 20),
           child: 

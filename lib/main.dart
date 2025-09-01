@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/enums/shoes_enum.dart';
 import 'package:flutter_application_1/models/shoes.dart';
+import 'package:flutter_application_1/screens/form_home_screen.dart';
 import 'package:flutter_application_1/screens/home_screen.dart';
 import 'package:flutter_application_1/screens/product_card_screen.dart';
 
@@ -16,7 +17,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: HomeScreen());
+      home: FormHomeScreen());
           
   }
 }
