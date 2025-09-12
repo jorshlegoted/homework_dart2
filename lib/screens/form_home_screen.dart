@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/models/shoes.dart';
 import 'package:flutter_application_1/screens/home_screen.dart';
 
 class FormHomeScreen extends StatefulWidget {
-  const FormHomeScreen({super.key});
+  const FormHomeScreen({super.key, required this.shoes});
+
+  final List<Shoes> shoes;
 
   @override
   State<FormHomeScreen> createState() => _FormHomeScreenState();
@@ -85,7 +88,7 @@ class _FormHomeScreenState extends State<FormHomeScreen> {
                       final isValid = _formKey.currentState?.validate();
 
                       if(isValid ?? false) {
-                        Navigator.push(context, MaterialPageRoute(builder: (_) => HomeScreen()));
+                        Navigator.push(context, MaterialPageRoute(builder: (_) => HomeScreen(shoes: widget.shoes)));
                       } else {
                         ScaffoldMessenger.of(context).showSnackBar(
                           SnackBar(content: Text('Пожалуйста заполните поля'))

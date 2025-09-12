@@ -33,7 +33,7 @@ class ProductCard extends StatelessWidget {
               alignment: Alignment.center,
               children: [
                 Image.network(
-                product.photo,
+                product.image,
                 fit: BoxFit.cover,
                 width: double.infinity,
                 height: double.infinity,),
@@ -46,19 +46,21 @@ class ProductCard extends StatelessWidget {
             ),
             ),
           const SizedBox(width: 20),
-          Padding(padding: EdgeInsetsGeometry.only(top: 20),
-          child: 
-                Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                spacing: 15,
-                children: [
-                  ProductProperty(title: 'Тип товара:', description: 'Кроссовки'),
-                  ProductProperty(title: 'Марка:', description: product.shoes.shoesType),
-                  ProductProperty(title: 'Страна:', description: 'Вьетнам'),
-                  ProductProperty(title: 'Размеры:', description: product.sizesNoBrackets()),
-                  Text('Цена: ${product.costShoes} руб.'),
-                ],
-              ),),
+          Expanded(
+            child: Padding(padding: EdgeInsetsGeometry.only(top: 20),
+            child: 
+                  Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  spacing: 15,
+                  children: [
+                    ProductProperty(title: 'Тип товара:', description: product.category),
+                    ProductProperty(title: 'Марка:', description: product.title),
+                    ProductProperty(title: 'Страна:', description: 'Вьетнам'),
+                    //ProductProperty(title: 'Размеры:', description: product.sizesNoBrackets()),
+                    Text('Цена: ${product.price} руб.'),
+                  ],
+                ),),
+          ),
               
         ],
       ),
