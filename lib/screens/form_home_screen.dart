@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/models/shoes.dart';
+import 'package:flutter_application_1/domain/models/product.dart';
+import 'package:flutter_application_1/presentation/cubit/products_cubit.dart';
+import 'package:flutter_application_1/presentation/cubit/users_cubit.dart';
 import 'package:flutter_application_1/screens/home_screen.dart';
+import 'package:flutter_application_1/screens/home_user_screen.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class FormHomeScreen extends StatefulWidget {
-  const FormHomeScreen({super.key, required this.shoes});
-
-  final List<Shoes> shoes;
+  const FormHomeScreen({super.key});
 
   @override
   State<FormHomeScreen> createState() => _FormHomeScreenState();
@@ -88,7 +90,9 @@ class _FormHomeScreenState extends State<FormHomeScreen> {
                       final isValid = _formKey.currentState?.validate();
 
                       if(isValid ?? false) {
-                        Navigator.push(context, MaterialPageRoute(builder: (_) => HomeScreen(shoes: widget.shoes)));
+                        Navigator.push
+                        (context, MaterialPageRoute(builder: (_) => HomeUserScreen()));
+                        context.read<UsersCubit>().getUsers();
                       } else {
                         ScaffoldMessenger.of(context).showSnackBar(
                           SnackBar(content: Text('Пожалуйста заполните поля'))

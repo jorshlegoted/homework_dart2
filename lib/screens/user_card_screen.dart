@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/domain/models/product.dart';
+import 'package:flutter_application_1/domain/models/users.dart';
 import 'package:flutter_application_1/widgets/button_add_product.dart';
 import 'package:flutter_application_1/widgets/product_property.dart';
 
-class ProductCard extends StatelessWidget {
-  const ProductCard({
-    required this.product,
+class UserCard extends StatelessWidget {
+  const UserCard({
+    required this.user,
     super.key,
   });
 
-  final Product product;
+  final Users user;
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +18,7 @@ class ProductCard extends StatelessWidget {
       //backgroundColorColor.fromARGB(199, 134, 238, 85))3),
       appBar: AppBar(
         backgroundColor: Color.fromARGB(255, 150, 255, 52),
-        title: Text('Карточка товара'),
+        title: Text('Карточка пользователя'),
         centerTitle: false,
       ),
       body: Column(
@@ -32,11 +33,11 @@ class ProductCard extends StatelessWidget {
             child: Stack(
               alignment: Alignment.center,
               children: [
-                Image.network(
-                product.image,
-                fit: BoxFit.cover,
-                width: double.infinity,
-                height: double.infinity,),
+                // Image.network(
+                // user.image,
+                // fit: BoxFit.cover,
+                // width: double.infinity,
+                // height: double.infinity,),
 
                 Positioned(
                   child: Icon(Icons.favorite, color: Color.fromARGB(237, 245, 53, 53), size: 50),
@@ -53,11 +54,11 @@ class ProductCard extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   spacing: 15,
                   children: [
-                    ProductProperty(title: 'Тип товара:', description: product.category),
-                    ProductProperty(title: 'Марка:', description: product.title),
-                    ProductProperty(title: 'Страна:', description: 'Вьетнам'),
+                    ProductProperty(title: 'Имя:', description: user.name),
+                    ProductProperty(title: 'Email:', description: user.email),
+                    ProductProperty(title: 'Телефон:', description: user.phone),
                     //ProductProperty(title: 'Размеры:', description: product.sizesNoBrackets()),
-                    Text('Цена: ${product.price} руб.'),
+                    //Text('Цена: ${product.price} руб.'),
                   ],
                 ),),
           ),
@@ -69,7 +70,7 @@ class ProductCard extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text('Описание товара:', style: TextStyle(fontSize: 20, fontWeight: FontWeight.w500),),
+            Text('Описание страницы:', style: TextStyle(fontSize: 20, fontWeight: FontWeight.w500),),
           ],
         ),
       ),
@@ -78,7 +79,7 @@ class ProductCard extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(product.description),
+            //Text(product.description),
           ],
         ),
       ),
@@ -110,14 +111,14 @@ class ProductCard extends StatelessWidget {
         ),
       
       
-      floatingActionButton: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 28),
-        child: Padding(
-          padding: const EdgeInsets.only(bottom: 48),
-          child: ButtonAddProduct(),
-        ),
-      ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+      // floatingActionButton: Padding(
+      //   padding: const EdgeInsets.symmetric(horizontal: 28),
+      //   child: Padding(
+      //     padding: const EdgeInsets.only(bottom: 48),
+      //     child: ButtonAddProduct(),
+      //   ),
+      // ),
+      // floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );
   }
 }
